@@ -3,7 +3,7 @@
 FROM node:latest
 
 # Create App Directory
-WORKDIR /app/server
+WORKDIR /app
 
 # Install Dependencies
 COPY package*.json yarn.lock ./
