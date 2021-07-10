@@ -1,0 +1,4 @@
+docker build -t yait-server .
+docker run -p 5000:5000 -v `pwd`:/app yait-server
+
+require('crypto').randomBytes(64).toString('hex');

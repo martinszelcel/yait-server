@@ -1,0 +1,38 @@
+version: '3.7'
+services:
+  server:
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    image: yait-server
+    container_name: yait-node-server
+    command: npm start
+    volumes:
+      - './:/app/server'
+      - /app/server/node_modules
+    ports:
+      - '5000:5000'
+    depends_on:
+      - mongo
+    environment:
+      CHOKIDAR_USEPOLLING: 'true'
+    networks:
+      - yait-network
+  mongo:
+    image: mongo
+    volumes:
+      - 'data-volume:/data/db'
+    ports:
+      - '27017:27017'
+    networks:
+      - yait-network
+    logging:
+      driver: none
+networks:
+  yait-network:
+    driver: bridge
+volumes:
+  data-volume: null
+  node_modules: null
+  web-root:
+    driver: local
