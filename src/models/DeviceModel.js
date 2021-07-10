@@ -7,7 +7,9 @@ const DeviceSchema = new Schema({
     ip: { type: String, required: true },
     userAgent: { type: String, required: true },
     refreshToken: { type: String, required: true, select: false },
-    lastUsed: { type: Date, default: Date.now()}
+    lastUsed: { type: Date, default: Date.now}
+}, {
+    timestamps: true
 });
 
 DeviceSchema.methods.createTokens = function () {
