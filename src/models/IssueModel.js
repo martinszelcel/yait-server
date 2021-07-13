@@ -8,6 +8,7 @@ const IssueSchema = new Schema({
     title: { type: String, required: true },
     description: { type: String },
     parent: { type: Schema.Types.ObjectId, ref: 'Issue' },
+    project: { type: Schema.Types.ObjectId, ref: 'Project', required: true },
 }, {
     timestamps: true
 });

@@ -1,11 +1,14 @@
 const router = require('express').Router();
 const auth = require('../services/auth/auth')
 
-const getIssue = require('../services/issue/getIssue');
-const addIssue = require('../services/issue/addIssue');
-const updateIssue = require('../services/issue/updateIssue');
+const getAllIssues = require('../services/issues/getAllIssues');
+const getIssue = require('../services/issues/getIssue');
+const addIssue = require('../services/issues/addIssue');
+const updateIssue = require('../services/issues/updateIssue');
 
-const path = 'issue'
+const path = 'issues'
+
+router.get('/', auth.required, getAllIssues);
 
 router.get('/:id', auth.required, getIssue);
 

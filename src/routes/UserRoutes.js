@@ -2,7 +2,7 @@ const router = require('express').Router();
 const logger = require('../config/logger')
 const User = require('../models/UserModel');
 
-const path = 'user'
+const path = 'users'
 
 // /**
 //  * Return currently logged user.
